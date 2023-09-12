@@ -10,7 +10,7 @@
 
   <properties>
     <junit.version>4.12</junit.version>
-    <java.version>17</java.version>
+    <java.version>11</java.version>
     <scalatest.version>3.2.16</scalatest.version>
     <source.encoding>UTF-8</source.encoding>
     <release.version>${project.version}</release.version>
@@ -26,7 +26,7 @@
     <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
     <scalastyle-maven-plugin.version>1.0.0</scalastyle-maven-plugin.version>
     <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
-    <scala-maven-plugin.version>4.8.0</scala-maven-plugin.version>
+    <scala-maven-plugin.version>4.8.1</scala-maven-plugin.version>
     <scalatest-maven-plugin.version>2.0.0</scalatest-maven-plugin.version>
 
     <!-- Spark related properties -->
@@ -144,43 +144,6 @@
           <argLine>-ea -Xmx4g -Xss4m -XX:ReservedCodeCacheSize=${CodeCacheSize} -Dio.netty.tryReflectionSetAccessible=true</argLine>
         </configuration>
       </plugin>
-      <!--
-      <plugin>
-        <groupId>org.scalatest</groupId>
-        <artifactId>scalatest-maven-plugin</artifactId>
-        <version>2.2.0</version>
-        <configuration>
-          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-          <junitxml>.</junitxml>
-          <filereports>TestResult.txt</filereports>
-          <argLine>-ea -Xmx4g -Xss4m -XX:ReservedCodeCacheSize=${CodeCacheSize} -Dio.netty.tryReflectionSetAccessible=true</argLine>
-          <htmlreporters>${project.build.directory}/site/scalatest</htmlreporters>
-          <stderr/>
-          <environmentVariables>
-            <SPARK_PREPEND_CLASSES>1</SPARK_PREPEND_CLASSES>
-            <SPARK_SCALA_VERSION>${scala.binary.version}</SPARK_SCALA_VERSION>
-            <SPARK_TESTING>1</SPARK_TESTING>
-            <JAVA_HOME>${test.java.home}</JAVA_HOME>
-          </environmentVariables>
-          <systemProperties>
-            <derby.system.durability>test</derby.system.durability>
-            <java.awt.headless>true</java.awt.headless>
-            <java.io.tmpdir>${project.build.directory}/tmp</java.io.tmpdir>
-          </systemProperties>
-          <tagsToExclude>${test.exclude.tags},${test.default.exclude.tags}</tagsToExclude>
-          <tagsToInclude>${test.include.tags}</tagsToInclude>
-        </configuration>
-        <executions>
-          <execution>
-            <id>test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      -->
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
@@ -223,9 +186,9 @@
             <arg>-deprecation</arg>
             <arg>-feature</arg>
             <arg>-explaintypes</arg>
-            <arg>-target:17</arg>
+            <arg>-target:11</arg>
             <arg>-release</arg>
-            <arg>17</arg>
+            <arg>11</arg>
           </args>
           <jvmArgs>
             <jvmArg>-Xms1024m</jvmArg>
