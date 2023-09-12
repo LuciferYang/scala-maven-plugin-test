@@ -11,6 +11,8 @@
   <properties>
     <junit.version>4.12</junit.version>
     <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
     <scalatest.version>3.2.16</scalatest.version>
     <source.encoding>UTF-8</source.encoding>
     <release.version>${project.version}</release.version>
@@ -187,8 +189,6 @@
             <arg>-feature</arg>
             <arg>-explaintypes</arg>
             <arg>-target:11</arg>
-            <arg>-release</arg>
-            <arg>11</arg>
           </args>
           <jvmArgs>
             <jvmArg>-Xms1024m</jvmArg>
